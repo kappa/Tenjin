@@ -3,6 +3,8 @@ package Tenjin::Context;
 use strict;
 use warnings;
 
+use Tenjin::Util;
+
 sub new {
 	my ($class, $self) = @_;
 
@@ -59,6 +61,22 @@ sub _build_decl {
 	}
 	return $s;
 }
+
+*_p           = *Tenjin::Util::_p;
+*_P           = *Tenjin::Util::_P;
+*escape       = *Tenjin::Util::escape_xml;
+*escape_xml   = *Tenjin::Util::escape_xml;
+*unescape_xml = *Tenjin::Util::unescape_xml;
+*encode_url   = *Tenjin::Util::encode_url;
+*decode_url   = *Tenjin::Util::decode_url;
+*checked      = *Tenjin::Util::checked;
+*selected     = *Tenjin::Util::selected;
+*disabled     = *Tenjin::Util::disabled;
+*nl2br        = *Tenjin::Util::nl2br;
+*text2html    = *Tenjin::Util::text2html;
+*tagattr      = *Tenjin::Util::tagattr;
+*tagattrs     = *Tenjin::Util::tagattrs;
+*new_cycle    = *Tenjin::Util::new_cycle;
 
 __PACKAGE__;
 
