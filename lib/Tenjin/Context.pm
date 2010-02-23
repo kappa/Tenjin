@@ -64,7 +64,15 @@ sub _build_decl {
 
 *_p           = *Tenjin::Util::_p;
 *_P           = *Tenjin::Util::_P;
-*escape       = *Tenjin::Util::escape_xml;
+sub escape {
+        my $str = $_[1];
+        $str =~ s/&/&amp;/g;
+        $str =~ s/</&lt;/g;
+        $str =~ s/>/&gt;/g;
+        $str =~ s/"/&quot;/g;
+        $str =~ s/'/&apos;/g;
+        return $str;
+};
 *escape_xml   = *Tenjin::Util::escape_xml;
 *unescape_xml = *Tenjin::Util::unescape_xml;
 *encode_url   = *Tenjin::Util::encode_url;
